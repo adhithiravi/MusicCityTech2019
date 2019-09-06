@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Music City Tech 2019 - Lessons from building react native apps</title>
+
+		<meta name="description" content="10 Lessons from building react native apps. ByteConf React Native">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-white-blue">
+		<div class="reveal">
+			<div class="slides">
+				<section class="stack" data-id="6a58d822dc9528c7100eedbb3e848a89"><section data-id="1a5aa9b60810a446fe27e46fc7f2be66" data-background-color="#7faef7"><div class="sl-block" data-block-type="text" style="width: 840px; left: 60px; top: 204px; height: auto;" data-block-id="c9f74f8389ae34f966ded63b8b080d76"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" dir="ui" style="z-index: 10; color: rgb(0, 0, 0);">
+<h1>10 Lessons I Learned Building React Native Apps</h1>
+</div></div>
+</section><section data-id="7bd0c1f1eff3e685acc2a0c44e9b982c"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 719px; left: 131px; top: 287px;" data-block-id="3364acd5591b2ba122c9a77d9c49870a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: center; color: rgb(0, 0, 0);">
+<h2>Adhithi Ravichandran</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="2c042e17a252e35ab482c46146fc95ea" style="min-width: 4px; min-height: 4px; width: 97px; height: 97px; left: 366px; top: 361px;"><a class="sl-block-content" style="z-index: 12;" href="https://twitter.com/AdhithiRavi" target="_blank"><img style="" data-natural-width="1280" data-natural-height="1280" data-lazy-loaded="" data-src="deck-2-3-3-11-16/ed2f8716dbdf5955215a2c1f7ffafe1b.png"></a></div>
+<div class="sl-block" data-block-type="image" data-block-id="d8071f2cf6579bedf22f665461a2f48b" style="min-width: 4px; min-height: 4px; width: 79px; height: 79px; left: 491px; top: 370px;"><a class="sl-block-content" style="z-index: 13;" href="https://github.com/adhithiravi" target="_blank"><img data-natural-width="1280" data-natural-height="1280" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/4a52bc7ba0cb349e47ec409288a8f80e.png"></a></div>
+<div class="sl-block" data-block-type="image" data-block-id="e7efde65c4627245ab4cdbfe33eda698" style="min-width: 4px; min-height: 4px; width: 70px; height: 70px; left: 615px; top: 370px;"><a class="sl-block-content" style="z-index: 14;" href="https://www.linkedin.com/in/adhithi/" target="_blank"><img data-natural-width="180" data-natural-height="180" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/d7e0daf68310ff901e1d46338ec73d0a.png"></a></div>
+<div class="sl-block" data-block-type="text" data-block-id="8011fdc3d77a8ea752f60955bc8f6590" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 471px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" dir="ui"><p><a href="http://adhithiravichandran.com/" target="_blank"><span>http://adhithiravichandran.com/</span></a></p></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="b36e56c2494429ed8386aff27f0c7c3d" style="min-width: 4px; min-height: 4px; width: 75px; height: 75px; left: 270px; top: 370px;"><a class="sl-block-content" style="z-index: 16;" href="https://medium.com/@adhithiravi" target="_blank"><img style="" data-natural-width="195" data-natural-height="195" data-lazy-loaded="" data-src="deck-2-3-3-11-16/cb272a02f021906dabf97685844104d7.png"></a></div>
+<div class="sl-block" data-block-type="text" data-block-id="7cff29fdf9e754f77beb562e20a1353b" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 51px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;" dir="ui">
+<h1>Who Am I?</h1>
+</div></div></section><section data-id="34f22a734f9658c2561fb322ef9567e3" data-background-color="#222222"><div class="sl-block" data-block-type="text" data-block-id="fd5d20105fd434a4d90dae607e62bce2" style="height: auto; min-width: 30px; min-height: 30px; width: 842px; left: 59px; top: 216px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 1.56; color: rgb(255, 255, 255);" data-has-line-height="">
+<ul>
+	<li style="" class="fragment" data-fragment-index="0"><span style="font-size:1.4em">Written in JavaScript</span></li>
+	<li style="" class="fragment" data-fragment-index="1"><span style="font-size:1.4em">Fast Refresh</span></li>
+	<li style="" class="fragment" data-fragment-index="2"><span style="font-size:1.4em">Build pure "Native" apps</span></li>
+	<li style="" class="fragment" data-fragment-index="3"><span style="font-size:1.4em">Code once - Works on Android and iOS</span></li>
+	<li style="" class="fragment" data-fragment-index="4"><span style="font-size:1.4em">Excellent Community</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="856e3c1b74f798ebf3c655f2286239c1" style="height: auto; min-width: 30px; min-height: 30px; width: 1076px; left: -45px; top: 41px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);">
+<h2>5 Reasons Why React Native?</h2>
+</div></div></section><section data-id="f2d994c44831e982590e2db3436e9c17" data-background-color="#7faef7"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 280px; height: auto;" data-block-id="2128d9e6620c84ae242289228fcb0ccb"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Lesson 1: Learn React</h1>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="14f40891b74f1634d62fde4e829577f1" style="min-width: 4px; min-height: 4px; width: 320px; height: 226px; left: 294px; top: 47px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="1024" data-natural-height="724" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/f3d91fd660edf0cd588fa620cf1b1448.png"></div></div></section><section data-id="a0404b57152be6a118530f578fd492b4" data-background-color="#ffffff">
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" data-block-id="5c1aeb0cade4f20d9c2df69b07bfa6e6" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -53px; top: 115px;"><div class="sl-block-style" style="z-index: 11;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(0, 0, 0);">
+<h3><em>Lifecycle Methods</em></h3>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -191px; top: 306px;" data-block-id="abffa36bba71431a86eeb2fa96a2b87f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(0, 0, 0);">
+<h3><em>Props</em></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -80px; top: 503px;" data-block-id="d911b0f31c5a459a83f596103701cc0d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(0, 0, 0);">
+<h3><em>State</em></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 444px; top: 503px;" data-block-id="a8ce2f7bc59c88788fbfcd8b16249169"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(0, 0, 0);">
+<h3><em>JSX</em></h3>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 437px; top: 115px;" data-block-id="80b8ca4661eb464f29dc171544e5070e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(0, 0, 0);">
+<h3><em>Composition</em></h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 520px; top: 313px;" data-block-id="41edbcea92360a83561f9045916475ca"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(0, 0, 0);">
+<h3><em>Think React</em></h3>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="bccff05292b64df09a33901720d3c832" style="min-width: 4px; min-height: 4px; width: 336px; height: 238px; left: 304px; top: 231px;"><div class="sl-block-content" style="z-index: 17;"><img data-natural-width="1024" data-natural-height="724" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/f3d91fd660edf0cd588fa620cf1b1448.png"></div></div></section><section data-background-color="#7faef7" data-id="e9e4c537fe81c5b814f66d7feef3e991"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 280px; height: auto;" data-block-id="f14a4215e239f7f06b571e4adc529bb9"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Lesson 2: Navigation is still evolving</h1>
+</div></div></section><section data-id="43d23a1ae3a566e7d7e1b9ed04510e2b" data-background-color="#000000"><div class="sl-block" data-block-type="image" data-block-id="03d26683fc636092b2b12ccbe24d3602" style="min-width: 4px; min-height: 4px; width: 492px; height: 264px; left: 240px; top: 180px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="380" data-natural-height="204" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/68391b6cbca7f3b9d80778e625d8cdf7.gif"></div></div>
+
+
+
+
+
+
+
+
+
+</section><section data-id="c73cbf1857a666f7db5ad6f6c6cb14f6" data-background-color="#000000"><div class="sl-block" data-block-type="image" data-block-id="02ecdec6672e9604151e000c8efc21fb" style="min-width: 4px; min-height: 4px; width: 832px; height: 798px; left: 56px; top: -18px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1407" data-natural-height="1350" data-lazy-loaded="" data-src="deck-2-3-3-11-16/5631e080511720cb28c39b59390785a1.png"></div></div></section><section data-id="82ee830b68b42f7b0f1dd7130cf85243"><div class="sl-block" data-block-type="image" data-block-id="194269179fa4df34ff45f3b73fce53f8" style="min-width: 4px; min-height: 4px; width: 871px; height: 490px; left: 52px; top: 105px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="480" data-natural-height="270" data-lazy-loaded="" data-src="deck-2-3-3-11-16/2f94e62ad8201d542c808cc68c052b2f.gif"></div></div></section><section data-background-color="#000000" data-id="f1cd3818796696a7116abc0c5d6490a5">
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" data-block-id="c51a2ea4731576780280f9ca6181b687" style="height: auto; min-width: 30px; min-height: 30px; width: 767px; left: 113px; top: 18px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>What have I used?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="990f8e48616457102536ce30aa29937c" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 120px; top: 233px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left; color: rgb(255, 255, 255); line-height: 1.95;" data-has-line-height="" dir="ui">
+<ul>
+	<li class="fragment" data-fragment-index="0">NavigationExperimental</li>
+	<li class="fragment" data-fragment-index="2">Navigator</li>
+	<li class="fragment" data-fragment-index="4">NavigationIOS</li>
+	<li class="fragment" data-fragment-index="6">Native Navigation</li>
+	<li class="fragment" data-fragment-index="8">React Navigation</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="line" data-block-id="7904e54d15f076392340a46c0922c6fb" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 176px; top: 266px;"><div class="sl-block-content fragment" data-line-x1="117" data-line-y1="11" data-line-x2="-204" data-line-y2="11" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 10;" data-fragment-index="1" data-line-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="321" height="1" viewbox="-204 11 321 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="117.5" y1="11.5" x2="-203.5" y2="11.5"></line><line stroke="#ffffff" stroke-width="5" x1="117.5" y1="11.5" x2="-203.5" y2="11.5"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 166px; top: 322px;" data-block-id="f4b31a5efb1c033b03cf1f86e1dfd013"><div class="sl-block-content fragment" data-line-x1="-83" data-line-y1="11" data-line-x2="-214" data-line-y2="11" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;" data-fragment-index="3" data-line-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="131" height="1" viewbox="-214 11 131 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-82.5" y1="11.5" x2="-213.5" y2="11.5"></line><line stroke="#ffffff" stroke-width="5" x1="-82.5" y1="11.5" x2="-213.5" y2="11.5"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 166px; top: 379px;" data-block-id="1745c63d51820719dc778ded7ea7734d"><div class="sl-block-content fragment" data-line-x1="-19" data-line-y1="11" data-line-x2="-218" data-line-y2="11" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 14;" data-fragment-index="5" data-line-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="199" height="1" viewbox="-218 11 199 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-18.5" y1="11.5" x2="-217.5" y2="11.5"></line><line stroke="#ffffff" stroke-width="5" x1="-18.5" y1="11.5" x2="-217.5" y2="11.5"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 166px; top: 441px;" data-block-id="6e589ddff04b6ddb8581b2166358b2fe"><div class="sl-block-content fragment" data-line-x1="27" data-line-y1="11" data-line-x2="-218" data-line-y2="11" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;" data-fragment-index="7" data-line-width="5px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="245" height="1" viewbox="-218 11 245 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="27.5" y1="11.5" x2="-217.5" y2="11.5"></line><line stroke="#ffffff" stroke-width="5" x1="27.5" y1="11.5" x2="-217.5" y2="11.5"></line></svg></div></div></section><section data-id="47e0d8b2f0d8cfd8fb1404e0938e4354" data-background-color="#000000"><div class="sl-block" data-block-type="text" data-block-id="fffc1ee50b8c89fc7ff948b5d6c749e1" style="height: auto; min-width: 30px; min-height: 30px; width: 632px; left: 164px; top: 107px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>Safe bet if you are starting today</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="50d46ae26c3d2ac157b5ca7d33e03db7" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 176px; top: 397px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(92, 224, 232); text-align: center;">
+<h2><a href="https://reactnavigation.org/" target="_blank">React Navigation</a></h2>
+</div></div></section><section data-background-color="#000000" data-id="163ce86296a461ed0caf3e9c6b9fb1cf"><div class="sl-block" data-block-type="text" style="height: auto; width: 704px; left: 129px; top: 110px;" data-block-id="d9203ef6791e4a90915ba2f2ad167e52"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255);" dir="ui">
+<h3>Provides 100% Native platform navigation on both iOS and Android</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 775px; left: 93px; top: 346px;" data-block-id="2b17286c8c9528ce029733d6aa2c6b0f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(92, 224, 232); text-align: center;">
+<h2>React Native Navigation</h2>
+</div></div></section><section data-background-color="#7faef7" data-id="21116acd90236ee9a90210f2a8250b09"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 210px; height: auto;" data-block-id="35e27670cf618d9b033fc137c4b12d94"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Lesson 3: Use State Management if necessary </h1>
+</div></div></section><section data-id="9f6fbedc3588e3976f9e5f25ab2a7df5">
+<div class="sl-block" data-block-type="text" data-block-id="cf7aef54fe056c1ae844406a81d3474d" style="height: auto; min-width: 30px; min-height: 30px; width: 891px; left: 28px; top: 273px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>State management gets hard to maintain in large apps</h2>
+</div></div>
+</section><section data-id="a667bd3e77b0d1c2b82f3932a8f9fe89" data-background-color="#222222"><div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 196px; height: 196px; left: 628px; top: 210px;" data-block-id="6882bf9fb8b4ca905acccc436816986d"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="1"><img data-natural-width="200" data-natural-height="200" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/250688e0fde3682f27eac0e91dfaf36d.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="a09dfcb78e9ad93a05db77097feac000" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 426px; top: 411px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="1">
+<h2><span style="color:#FFFFFF">MobX</span></h2>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -44px; top: 411px;" data-block-id="d1d79aa34c3f33a5a86f0d2b8917d441"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<h2><span style="color:#FFFFFF">Redux</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 891px; left: 28px; top: 25px;" data-block-id="45c110573965649ee21c908b1e18c346"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<h2><font color="#ffffff">State management libraries</font></h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="f48742fbd9aedc841302668eeab35205" style="min-width: 4px; min-height: 4px; width: 384px; height: 226px; left: 71px; top: 195px;"><div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="0"><img data-natural-width="312" data-natural-height="244" style="left: 0px; top: 0px; width: 384px; height: 300px;" data-crop-x="0" data-crop-y="0" data-crop-width="1" data-crop-height="0.752988" data-lazy-loaded="" data-src="deck-2-3-3-11-16/078e551f37c9a8af2336d30769de0eb4.png"></div></div></section><section data-id="2995d1cf1d01ed1cad5274a9fe4028c4">
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 915px; left: 24px; top: 272px;" data-block-id="a9d21333fccf313577e2b3be7721b6c5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; line-height: 1.95;" data-has-line-height="" dir="ui">
+<ul>
+	<li class="fragment" data-fragment-index="0">Props passed through hierarchy of components</li>
+	<li class="fragment" data-fragment-index="1">Global components (notifications)</li>
+	<li class="fragment" data-fragment-index="2">Share application state to multiple container components (user info, session state)</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="843d242de99f395c29e08f3245eb55ab" style="height: auto; min-width: 30px; min-height: 30px; width: 777px; left: 93px; top: 33px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<h2>Signs you may need state management</h2>
+</div></div></section><section data-background-color="#222222" data-id="12503928fb4ca8cc49740c0311b8a3ac">
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 891px; left: 35px; top: 280px;" data-block-id="93272f88515d8a489cdac0545f81063e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>or maybe you can just use React Hooks!</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="c5ea23a8009c5da7cd461541210d998f" style="min-width: 4px; min-height: 4px; width: 312px; height: 221px; left: 314px; top: 30px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="1024" data-natural-height="724" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/f3d91fd660edf0cd588fa620cf1b1448.png"></div></div></section><section data-background-color="#7faef7" data-id="402d8a00a657acd1e2091cbceb9b83c9"><div class="sl-block" data-block-type="text" style="width: 806px; left: 56px; top: 302px; height: auto;" data-block-id="6a8a9b2f105c1a8789ec4c49ef0e98d1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Lesson 4: Should I use Expo? </h1>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="61dc589c54ce5f8bf9357be0f801d236" style="min-width: 4px; min-height: 4px; width: 358px; height: 256px; left: 240px; top: 24px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1892" data-natural-height="1350" data-lazy-loaded="" data-src="deck-2-3-3-11-16/81547bd0a35558f0eb8658d80c3331ab.png"></div></div></section><section data-background-color="#7faef7" data-id="fb40d4c99da6bc1615b8f36dde0adccc"><div class="sl-block" data-block-type="text" style="width: 978px; left: -9px; top: 236px; height: auto;" data-block-id="2a1e32b921b580d9e6e8b55c740f0f69"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Expo lets you build React Native apps super fast</h1>
+</div></div>
+</section><section data-id="9e59b7162cf32db4acbfef4a5b3d230d">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 818px; left: 93px; top: 175px;" data-block-id="d09580450dade7d378609c6cebafe997"><div class="sl-block-style" style="z-index: 11; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 1.95;" data-has-line-height="" dir="ui">
+<p> </p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0" style="text-align:left"><span style="font-size:1.2em">No build configuration</span></li>
+	<li class="fragment" data-fragment-index="1" style="text-align:left"><span style="font-size:1.2em">Use only JavaScript</span></li>
+	<li class="fragment" data-fragment-index="2" style="text-align:left"><span style="font-size:1.2em">No native coding</span></li>
+	<li class="fragment" data-fragment-index="3" style="text-align:left"><span style="font-size:1.2em">Publish updates Over The Air (OTA) anytime</span></li>
+</ul>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 791px; left: 136px; top: 67px;" data-block-id="e50c9a00d7dd199bd449e95d30fcf74c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui">
+<h2><span style="font-size:0.9em">Why say YES to Expo?</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="ff1be9fd4df8bdd0222c4237e2319d4a" style="min-width: 4px; min-height: 4px; width: 125px; height: 125px; left: 80px; top: 50px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1350" data-natural-height="1350" data-lazy-loaded="" data-src="deck-2-3-3-11-16/30a02c7d29b331565133933ad0ec5cff.png"></div></div></section><section data-id="4e0273a7da07ff173d708f0f1b234073">
+<div class="sl-block" data-block-type="text" data-block-id="772967ac5f2651724b25ea2699506803" style="height: auto; min-width: 30px; min-height: 30px; width: 699px; left: 94px; top: 155px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 1.95;" data-has-line-height="" dir="ui">
+<p class="visible">​</p>
+
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">Restrictive</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:36px">Loaded (not suitable for lean apps)</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:1.2em">Not all iOS and android APIs available </span></li>
+	<li class="fragment" data-fragment-index="3"><span style="font-size:1.2em">Cannot change native code</span></li>
+	<li class="fragment" data-fragment-index="4"><span style="font-size:1.2em">Detachment comes with a cost</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="8be6ef800a7ccf5e8fbe79960141db0d" style="height: auto; min-width: 30px; min-height: 30px; width: 791px; left: 138px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" dir="ui">
+<h2><span style="font-size:0.9em">Why say NO to a Expo?</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="39698dc8d37f080a6a982f31f53576e6" style="min-width: 4px; min-height: 4px; width: 89px; height: 96px; left: 94px; top: 59px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="671" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/301f762a0c4aacc26ef629d252a0cf65.png"></div></div></section><section data-id="9f1ef12ad822b5ef878f0f7320074686" data-background-color="#222222"><div class="sl-block" data-block-type="text" style="width: 944px; left: 8px; top: 210px; height: auto;" data-block-id="ddc43700f74deba88b52300a4454ad59"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(255, 255, 255);">
+<h1>Expo for React Native provides a better developer experience.</h1>
+</div></div></section><section data-background-color="#7faef7" data-id="6aba143a7c8bd32aa85aa2a4f067d62b"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 230px; height: auto;" data-block-id="527b676791690b44e51e8f98a333078f"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Lesson 5: Don't postpone Android testing</h1>
+</div></div></section><section data-id="042f8e4dc4d62ce2d6e7ea59bfd61089"><div class="sl-block" data-block-type="image" data-block-id="de9947a5831159c73386592994a5ae9b" style="min-width: 4px; min-height: 4px; width: 894px; height: 522px; left: 44px; top: 90px;"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="500" data-natural-height="292" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/bf1454bfb195b2dbdc11a79ef2ee8b81.gif"></div></div></section><section data-background-color="#006578" data-id="85644247a587e4dff20a679e016b8711">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 806px; left: 145px; top: 33px;" data-block-id="730f0f08c134ac7af973e182d3fb8071"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); text-align: center;">
+<h2>Where the problem arises?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 806px; left: 65px; top: 210px;" data-block-id="3e5fabd70530e3170504eaae350e3d46"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255); text-align: center; line-height: 1.95;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">Inclined to test on iOS (personal devices)</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:1.2em">Developers run only one emulator at a time</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:36px">Assume it works on Android</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="font-size:36px">Third-party libraries don't support Android as well</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="d7d2b5468373a09517bcd56791b8aa01" style="min-width: 4px; min-height: 4px; width: 111px; height: 130px; left: 25px; top: 0px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1150" data-natural-height="1350" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/5d57572671402e5e9ca9826f2f30172b.png"></div></div></section><section data-id="b7e2fa8fc4bb18c3d3e26ceafa687523" data-background-color="#006578"><div class="sl-block" data-block-type="image" data-block-id="72ecd8b3d846498dc02237af67dc1aee" style="min-width: 4px; min-height: 4px; width: 963px; height: 506px; left: -3px; top: 80px;"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="1920" data-natural-height="1008" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/980fe8a06aaeeaa3b435538dd3aa4c61.jpg"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="b461b1062533483775408913658d407c" style="height: auto; min-width: 30px; min-height: 30px; width: 806px; left: 77px; top: 10px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); text-align: center;">
+<h3>Test Android Devices along with iOS</h3>
+</div></div></section><section data-id="cc69921a017fdd969fcbdbd12f865c67"><div class="sl-block" data-block-type="text" data-block-id="d5862764b48ebac54b6d037989b211fb" style="height: auto; min-width: 30px; min-height: 30px; width: 958px; left: 2px; top: 230px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; line-height: 1.95;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">Automate both Android and iOS releases</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:1.2em">Maximize devices</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:1.2em">Test early and often</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="font-size:36px">Assign developers an emulator in rotation</span></li>
+	<li class="fragment" data-fragment-index="4"><span style="font-size:1.2em">Bottom-line: Treat Android and iOS as equals</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="a5a832408193ff0a2fa1abd63f22352b" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 174px; top: 70px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: center;">
+<h2>Tips</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 111px; height: 130px; left: 198px; top: 42px;" data-block-id="1a7949829ef01771d3069d25fcb73b29"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1150" data-natural-height="1350" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/5d57572671402e5e9ca9826f2f30172b.png"></div></div></section><section data-background-color="#7faef7" data-id="b51f2ad306cb7b384d4ab1b46f4f9e04"><div class="sl-block" data-block-type="text" style="width: 806px; left: 73px; top: 338px; height: auto;" data-block-id="a59d86b4565b225812492b4698a2a5a9"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Lesson 6: Testing</h1>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 443px; height: 310px; left: 232px; top: 21px;" data-block-id="ef811af1675579fd1560c06b27151c4a"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="960" data-natural-height="672" data-lazy-loaded="" data-src="deck-2-3-3-11-16/facd8b52479b6d5e5c36bef7467e6e44.jpg"></div></div></section><section data-id="f191e5f7fae30bd80dcd0e214bf732f6" data-background-color="#222222"><div class="sl-block" data-block-type="text" style="width: 841px; left: 60px; top: 156px; height: auto;" data-block-id="72c16f60ef5ae8a2d175d11d9740d756"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h1><span style="color:#FFFFFF"><em><span style="text-align:start">“Quality means doing it right even when no one is looking.”</span></em>— Henry Ford</span></h1>
+</div></div></section><section data-id="c574d1605ba62b216e4b7decc6b93eaf"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 31px; height: auto;" data-block-id="29eca104fc5c1b68ec5450b52143a858"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Unit Testing - Jest</h1>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="7a14f896a722b5007601345dd45d206a" style="min-width: 4px; min-height: 4px; width: 960px; height: 415px; left: 0px; top: 193px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="2500" data-natural-height="1081" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/757ea376967f557c4a422c7986f85472.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="67b6fa59c6381c6dc55c44988e5a0ef3" style="min-width: 4px; min-height: 4px; width: 121px; height: 337px; left: 29px; top: 259px;"><div class="sl-block-content fragment" data-shape-type="rect" data-shape-fill-color="rgba(0, 0, 0, 0)" data-shape-stretch="true" style="z-index: 13;" data-shape-corner-radius="10px" data-shape-stroke-color="#ff9900" data-shape-stroke-width="5px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 121 337"><defs><clippath id="shape-mask-1-1562534870378"><rect width="121" height="337" rx="10" ry="10"></rect></clippath></defs><rect width="121" height="337" rx="10" ry="10" clip-path="url(#shape-mask-1-1562534870378)" class="shape-element" fill="rgba(0, 0, 0, 0)" stroke="#ff9900" stroke-width="10"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="41efc8f9b1a128452eb9885b69375505" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 169px; top: 620px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<pre><span style="font-size:0.7em"><em><strong>https://2018.stateofjs.com/testing/overview/</strong></em></span></pre>
+</div></div></section><section data-id="e8b4a2d24eeab6fac0c5d61f6f06c347" data-background-color="#222222"><div class="sl-block" data-block-type="text" style="width: 980px; left: -10px; top: -13px; height: auto;" data-block-id="cdaa1d96fd0c23fed76eaad27eddc062"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#FFFFFF">End-To-End Tests</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="f5922f8995d441f7364e502d53b11232" style="min-width: 4px; min-height: 4px; width: 960px; height: 640px; left: 0px; top: 97px;"><div class="sl-block-style" style="z-index: 13; transform: rotate(360deg);"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="2025" data-natural-height="1350" data-lazy-loaded="" data-src="deck-2-3-3-11-16/afd574d500ea72283f2ce03fff720088.jpg"></div></div></div></section><section data-background-color="#222222" data-id="6d0cb8c9990d67b9e4fce47261ad1a9c"><div class="sl-block" data-block-type="text" style="width: 980px; left: -10px; top: 22px; height: auto;" data-block-id="aac34002cd40a767b5ba154013612e7a"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#FFFFFF">Using Detox</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="6dbf5b4916603e14065f1ea9b8df94cd" style="height: auto; min-width: 30px; min-height: 30px; width: 960px; left: 0px; top: 210px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h2><span style="color:#FFFFFF"><span style="text-align:start"> Detox tests your mobile app while it's running in a real device/simulator, interacting with it just like a real user</span></span></h2>
+</div></div></section><section data-id="1693b3343125f7364115de79a83ab789"><div class="sl-block" data-block-type="text" style="width: 1097px; left: -62px; top: 32px; height: auto;" data-block-id="c0ed9674c2056ab79cac0af31b3c02d7"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Detox Testing</h1>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-block-id="f8a5faa5f51134991946af3e8d52d91b" style="height: auto; min-width: 30px; min-height: 30px; width: 777px; left: 103px; top: 220px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; line-height: 1.95;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">Emulates a user testing experience</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:1.2em">Detox is a gray box test (monitor the app from inside)</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:1.2em">Helps automate a manual QA process</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="font-size:1.2em">Simple to write and execute (JavaScript)</span></li>
+</ul>
+</div></div></section><section data-id="f69b9302385afb6c13199c6ac6705865" data-background-color="#222222"><div class="sl-block" data-block-type="text" style="width: 849px; left: 56px; top: 210px; height: auto;" data-block-id="ec2564b4f440003f9bf7cb2ca909d932"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><em><span style="color:#FFFFFF">Testing makes you ship code with confidence!</span></em></h1>
+</div></div></section><section data-background-color="#7faef7" data-id="8bd013df63874a8cafe97fa0568f66a9"><div class="sl-block" data-block-type="text" style="width: 806px; left: 57px; top: 120px; height: auto;" data-block-id="cba2baa485d683f78d13c65aaaee6507"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; text-align: center;">
+<h1 style="text-align:left">Lesson 7: Continuous Delivery </h1>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 380px; height: 380px; left: 468px; top: 245px;" data-block-id="bfe2726ce07f283f829f5434d276ccfc"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="720" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/24dbbb47742beb0aa9a72ed5d638407c.png"></div></div></section><section data-id="fb271cfb4d70669f5851c0f7b86dab9c" data-background-color="#ffffff">
+<div class="sl-block" data-block-type="text" data-block-id="b79e876d5ffea0a723d6a32a5f6b9acd" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -63px; top: 77px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(0, 0, 0);" data-fragment-index="0">
+<h3>Distributes beta builds</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -92px; top: 523px;" data-block-id="b736cf1136bb15b7449dee6e05e6ac62"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(0, 0, 0);" data-fragment-index="2">
+<h3>Capture screenshots</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 529px; top: 309px;" data-block-id="f2790794e479d3870c6ae26d357650b9"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(0, 0, 0);" data-fragment-index="5">
+<h3> iOS/Android</h3>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 430px; top: 523px;" data-block-id="327dd9049d5e946b864a5018c0ec43c9"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(0, 0, 0);" data-fragment-index="4">
+<h3>App store deployment</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -228px; top: 298px;" data-block-id="1e2220575f9b84d5b3d268d9394d5913"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(0, 0, 0);" data-fragment-index="1">
+<h3>Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 149px; top: 630px;" data-block-id="a38370dba82720d12ca105079ef8b6a5"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(0, 0, 0);" data-fragment-index="3">
+<h3>Code signing</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 449px; top: 77px;" data-block-id="22644f6a972a65483ed8614ab155a12b"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(0, 0, 0);" data-fragment-index="6">
+<h3>Tons of hours saved</h3>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="8a9a7a3a8a6490f1ed5d0ec3580e7e9d" style="min-width: 4px; min-height: 4px; width: 556px; height: 194px; left: 140px; top: 226px;"><div class="sl-block-content" style="z-index: 18;"><img style="" data-natural-width="871" data-natural-height="304" data-lazy-loaded="" data-src="deck-2-3-3-11-16/7fe7fafa8c4ef262f20415ac87d943ff.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 274px; left: 400px; top: 368px;" data-block-id="83f4da3f9afc0cf9398a1ccd4cd16e6a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;" data-has-custom-html="">
+<p><span style="font-size:0.2em">By https://docs.fastlane.tools</span></p>
+</div></div></section><section data-id="05e66f467b82b9fae5cb9268b40192b3">
+<div class="sl-block" data-block-type="image" data-block-id="9c73bced1ec02dde79409d078b830bab" style="min-width: 4px; min-height: 4px; width: 278px; height: 326px; left: 542px; top: 269px;"><div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="1"><img data-natural-width="1150" data-natural-height="1350" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/5d57572671402e5e9ca9826f2f30172b.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="5a6baea21bfdf9331d1e003cb4ae80af" style="height: auto; min-width: 30px; min-height: 30px; width: 946px; left: 7px; top: 27px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: center;">
+<h2>Beta Deployments</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="81caa3641d02c54bbd1cee5d19e7d65b" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -92px; top: 210px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<h3>Testflight </h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 400px; top: 210px;" data-block-id="5ea605ad0e25003f4cf44dd76a3698fd"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: center;" data-fragment-index="1">
+<h3>Google Play or Crashlytics</h3>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="65a49042a694936604f8a30c76aa82db" style="min-width: 4px; min-height: 4px; width: 383px; height: 201px; left: 38px; top: 332px;"><div class="sl-block-content fragment" style="z-index: 15;" data-fragment-index="0"><img style="" data-natural-width="1200" data-natural-height="630" data-lazy-loaded="" data-src="deck-2-3-3-11-16/7b104f76fbd310a19ba538bde85aca40.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="6292b8a5e2fba5e8697efb901c063046" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: -92px; top: 556px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;" data-fragment-index="0">
+<p><span style="font-size:0.5em"><em><a href="https://developer.apple.com/testflight/" target="_blank">https://developer.apple.com/testflight/</a></em></span></p>
+</div></div></section><section data-id="42dbb3996b020f8666b26d38a1df0730" data-background-color="#7faef7"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="614a457f063f29ac6907973ac64dc54c"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Lesson 8: Picking the right Libraries</h1>
+</div></div></section><section data-id="8ca941990fc3e3e4bab68c56d0d4340d"><div class="sl-block" data-block-type="image" data-block-id="638fd9722a23e7af5489165761b6bfa7" style="min-width: 4px; min-height: 4px; width: 960px; height: 640px; left: 0px; top: 30px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="2025" data-natural-height="1350" data-lazy-loaded="" data-src="deck-2-3-3-11-16/ae6e54b3818d29aa6a673d94847bca00.jpg"></div></div></section><section data-id="c29d64a121b3b8b9db875207d7922bec"><div class="sl-block" data-block-type="image" data-block-id="9324c14d913487309e795fd3f97a35aa" style="min-width: 4px; min-height: 4px; width: 1173px; height: 619px; left: -86px; top: 81px;"><div class="sl-block-content" style="z-index: 11;"><img style="left: -3px; top: -32px; width: 1176px; height: 661px;" data-natural-width="1280" data-natural-height="720" data-crop-x="0.00274" data-crop-y="0.04878" data-crop-width="0.99726" data-crop-height="0.936586" data-src="deck-2-3-3-11-16/8cb05611a58b2de393cd932ce68766f8.png"></div></div>
+<div class="sl-block" data-block-type="text" style="width: 978px; left: 0px; top: 20px; height: auto;" data-block-id="518ec567cf01b6b0cd29b5dd102d74c1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h3><em><a href="https://github.com/react-native-community" target="_blank">https://github.com/react-native-community</a></em></h3>
+</div></div></section><section data-id="c393119acba4be70970441062206b5ab" data-background-color="#222222"><div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 225px; height: auto;" data-block-id="9b0f2fd71f6d071be349a85fe0d4f0ac"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2><span style="color:#FFFFFF">Make sure to open source your work to help the community!</span></h2>
+</div></div></section><section data-background-color="#7faef7" data-id="bdd2385440559322fde8a0056dfdc4e5"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 240px; height: auto;" data-block-id="754fadc4242c7ccd17b0acfa694aab69"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" dir="ui" style="z-index: 10;">
+<h1>Lesson 9: Stay on top of Upgrades</h1>
+</div></div>
+</section><section data-id="76df8c170975e4536dbbf479f27c4da4" data-background-color="#7faef7"><div class="sl-block" data-block-type="text" style="width: 887px; left: 51px; top: 8px; height: auto;" data-block-id="614e727d224eae0ef99cbf4f33c10c2e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Remember: Before you Upgrade</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 822px; left: 59px; top: 256px; height: auto;" data-block-id="22f9df0f776f2319fb0b3c11ce111c96"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 1.95;" data-has-line-height="">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:1.2em">Planning</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:1.2em">It could last anywhere between a few hours to a couple of weeks!!!</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:1.2em">Upgrade often</span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 117px; height: 117px; left: 0px; top: 0px;" data-block-id="20a9e899c9d1b60da5bdc339d068cc64"><div class="sl-block-style" style="z-index: 13; transform: rotate(360deg);"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="717" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/182fcaa650c4247615657b05a5d96ed3.png"></div></div></div></section><section data-id="81cc1f0405f890793529d48fe3aadea1" data-background-color="#ffffff"><div class="sl-block" data-block-type="text" style="width: 806px; left: 66px; top: 54px; height: auto;" data-block-id="841a52b92dc9139bd7b35c3f6a3e1632"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Steps to upgrade</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="7424a1740cd33d114d1668eb98f4733c" style="height: auto; min-width: 30px; min-height: 30px; width: 938px; left: -21px; top: 299px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h3><span style="font-size:1.2em"><a href="http://facebook.github.io/react-native/docs/upgrading.html" target="_blank"><em>facebook.github.io/react-native/docs/upgrading.html</em></a></span></h3>
+</div></div></section><section data-background-color="#7faef7" data-id="d40c445334ddb088ac56692dcfff49b1"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 232px; height: auto;" data-block-id="a8b563907faaa9de902fae61c5a5ebf0"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
+<h1>Lesson 10: Focus on Performance</h1>
+</div></div></section><section data-id="e52d73a8b0271b8563d3089b25710e1b"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 855px; left: 119px; top: 32px;" data-block-id="f4b4da6d80a1f9cdd0dbd505e8349d93"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Run Animations on native driver</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 128px; height: 129px; left: 11px; top: 15px;" data-block-id="d3f7df608f6fdd544b0f5e9744ea1600"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="717" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/182fcaa650c4247615657b05a5d96ed3.png"></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="4ba4f176e632278099826c10ae60c4df" style="min-width: 30px; min-height: 30px; width: 833px; height: 296px; left: 80px; top: 245px;"><div class="sl-block-content notranslate" data-highlight-theme="github-gist" data-code-frame="none" style="z-index: 13; font-size: 200%;" data-code-wrap="true"><pre class="xquery"><code>Animated.timing(this.state.animatedValue, {
+  toValue: 1,
+  duration: 500,
+  useNativeDriver: true, // &lt;-- Add this
+}).start();
+</code></pre></div></div></section><section data-id="28be554b3bc221157e9c3be65b8bb8a6"><div class="sl-block" data-block-type="image" data-block-id="36db1a4aa5b7fb655626f81d75160246" style="min-width: 4px; min-height: 4px; width: 128px; height: 129px; left: 0px; top: 31px;"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="717" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/182fcaa650c4247615657b05a5d96ed3.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="395894420fbdb39608536312584198a3" style="height: auto; min-width: 30px; min-height: 30px; width: 851px; left: 92px; top: 78px;"><div class="sl-block-style" style="z-index: 11; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" dir="ui"><h2>Use FlatList or SectionList </h2></div></div></div>
+
+<div class="sl-block" data-block-type="image" data-block-id="2047c543820b2b3fd7c5eca74bd5cf78" style="min-width: 4px; min-height: 4px; width: 121px; height: 130px; left: 20px; top: 280px;"><div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0"><img data-natural-width="671" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/301f762a0c4aacc26ef629d252a0cf65.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 320px; left: 160px; top: 308px;" data-block-id="257ac9e77bfc777f7cba181905625e9f"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" dir="ui" data-fragment-index="0">
+<h2>ListView</h2>
+</div></div></section><section data-id="fb50e2e6b7691ac727b357771777cc0b"><div class="sl-block" data-block-type="image" style="width: 128px; height: 129px; left: 13px; top: 18px; min-width: 4px; min-height: 4px;" data-block-id="83539259edcd343ee11839ed50c8195e"><div class="sl-block-content" style="z-index: 10;"><img data-natural-width="717" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/182fcaa650c4247615657b05a5d96ed3.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 851px; left: 103px; top: 31px;" data-block-id="bce3ad6198442c42023f7b0b3a75d054"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2>Using key attribute on list items</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 916px; height: 280px; left: 38px; top: 210px;" data-block-id="b423be113a745479d71202ac4e8bf493"><div class="sl-block-content notranslate fragment" data-highlight-theme="github-gist" style="z-index: 12; border-style: solid; border-width: 1px; font-size: 180%;" data-fragment-index="0"><pre class="xquery"><code>class MyComponent extends React.Component {
+  render() {
+    return this.props.data.map((item, i) =&gt; {
+      return &lt;Text key={item.id}&gt;{item.title}&lt;/Text&gt;
+    });
+  }
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 910px; left: 25px; top: 505px;" data-block-id="3c8235ed7b1bbe76d687ab62297558a8"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="1">
+<p>Without a unique key for every list item, React will re-render every time you add/remove an item.</p>
+
+<p> </p>
+</div></div></section><section data-id="b4cd8030ec273aa3310f75e2be1a9869"><div class="sl-block" data-block-type="image" style="width: 128px; height: 129px; left: 13px; top: 18px; min-width: 4px; min-height: 4px;" data-block-id="9802a39df77dc69af88d360075bcb17a"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="717" data-natural-height="720" style="" data-lazy-loaded="" data-src="deck-2-3-3-11-16/182fcaa650c4247615657b05a5d96ed3.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 1107px; left: -23px; top: 52px;" data-block-id="aee398950887a5c0a0e7d00bb844b762"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h2>Bind Early, Render Simple</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 819px; height: 358px; left: 141px; top: 147px;" data-block-id="f52eb11bbf0dfb159c631a8f1bda6bab"><div class="sl-block-content notranslate fragment" data-highlight-theme="github-gist" style="z-index: 13; border-style: solid; border-width: 1px; font-size: 120%;" data-fragment-index="0"><pre class="xquery"><code>class MyComponent extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.something = this.something.bind(this);
+  }
+  something() {
+    // Execute function
+  }
+  
+  render() {
+    return &lt;Text onPress={this.something}&gt;Execute something&lt;/Text&gt;
+  }
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="0936b89a8581e81126bc7f93d96405b2" style="min-width: 4px; min-height: 4px; width: 119px; height: 104px; left: 13px; top: 263px;"><div class="sl-block-content fragment" data-shape-type="symbol-checkmark-circle" data-shape-fill-color="rgb(127, 174, 247)" data-shape-stretch="true" style="z-index: 14;" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 32 32"><g class="shape-element" fill="rgb(127, 174, 247)"><path d="M16 0c-8.836 0-16 7.164-16 16s7.164 16 16 16 16-7.164 16-16-7.164-16-16-16zM13.52 23.383l-7.362-7.363 2.828-2.828 4.533 4.535 9.617-9.617 2.828 2.828-12.444 12.445z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="85aba6f073c76de02ac0df832497d33e" style="min-width: 4px; min-height: 4px; width: 125px; height: 110px; left: 7px; top: 533px;"><div class="sl-block-content fragment" data-shape-type="symbol-x-circle" data-shape-fill-color="rgb(204, 0, 0)" data-shape-stretch="true" style="z-index: 15;" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 32 32"><g class="shape-element" fill="rgb(204, 0, 0)"><path d="M16 0c-8.836 0-16 7.164-16 16s7.164 16 16 16 16-7.164 16-16-7.164-16-16-16zM23.914 21.086l-2.828 2.828-5.086-5.086-5.086 5.086-2.828-2.828 5.086-5.086-5.086-5.086 2.828-2.828 5.086 5.086 5.086-5.086 2.828 2.828-5.086 5.086 5.086 5.086z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="code" data-block-id="f9a2258c3b5ba366e5643617f77fa446" style="min-width: 30px; min-height: 30px; width: 819px; height: 184px; left: 141px; top: 496px;"><div class="sl-block-content notranslate fragment" data-highlight-theme="github-gist" style="z-index: 16; font-size: 120%; border-style: solid; border-width: 1px;" data-fragment-index="1"><pre class="xquery"><code>render() {
+ return {
+  &lt;Text onPress={()=&gt;this.something()}&gt;Execute something&lt;/Text&gt;
+  &lt;Text onPress={this.something.bind(this)}&gt;Execute something&lt;/Text&gt;
+  }
+}
+</code></pre></div></div></section><section data-id="c7974674a927042102e69136344e88f9"><div class="sl-block" data-block-type="text" data-block-id="879b01298ed2c8b13382db4543f13b67" style="height: auto; min-width: 30px; min-height: 30px; width: 1091px; left: -77px; top: 294px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h3><span style="font-size:1.2em"><em><a href="https://facebook.github.io/react-native/docs/performance" target="_blank">https://facebook.github.io/react-native/docs/performance</a></em></span></h3>
+</div></div></section><section data-id="eb15a8ad3fa7d9cb2a2e6d07b2ff7054" data-background-color="#ffffff"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 12px; height: auto;" data-block-id="38735bbdf094708b4cfc8ca943603cee"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(0, 0, 0);">
+<h2>10 Lessons I Learned Recap</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 100px; height: auto;" data-block-id="389afb306c66199a14bf7c4490cabe11"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 1.95; color: rgb(0, 0, 0);" data-has-line-height="" dir="ui">
+<ol>
+	<li class="fragment" data-fragment-index="0">Learn React</li>
+	<li class="fragment" data-fragment-index="1">Navigation is still evolving</li>
+	<li class="fragment" data-fragment-index="2">Use state management if necessary</li>
+	<li class="fragment" data-fragment-index="3">Expo or not</li>
+	<li class="fragment" data-fragment-index="4">Don't postpone Android testing</li>
+	<li class="fragment" data-fragment-index="5">Testing in React Native</li>
+	<li class="fragment" data-fragment-index="6">Continuous Delivery</li>
+	<li class="fragment" data-fragment-index="7">Picking the right library</li>
+	<li class="fragment" data-fragment-index="8">Upgrade regularly</li>
+	<li class="fragment" data-fragment-index="9">Focus on Performance</li>
+</ol>
+</div></div></section><section data-id="2def0894621faf83d8573c76b30d0a61" data-background-color="#000000"><div class="sl-block" data-block-type="text" style="width: 950px; left: 9px; top: 204px; height: auto;" data-block-id="d27061854c47aff33aa0732ca7a26193"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h1>It is a great time to be working on React Native!</h1>
+</div></div></section><section data-id="d3585ad1901dff7602ceeea8a7072349"><div class="sl-block" data-block-type="image" data-block-id="421aab8766cb606ee090db4c08683b41" style="min-width: 4px; min-height: 4px; width: 1185px; height: 601px; left: -86px; top: 84px;"><div class="sl-block-content" style="z-index: 11;"><img style="left: 0px; top: -66px; width: 1185px; height: 667px;" data-natural-width="1280" data-natural-height="720" data-crop-x="0" data-crop-y="0.098674" data-crop-width="1" data-crop-height="0.901326" data-src="deck-2-3-3-11-16/6223e995b844d79e879ccb51fa2e4a9b.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="70393745ee73b9fc8287a168e960120a" style="height: auto; min-width: 30px; min-height: 30px; width: 969px; left: 0px; top: 18px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><a href="https://app.pluralsight.com/library/courses/react-native-big-picture/" target="_blank">https://app.pluralsight.com/library/courses/react-native-big-picture/</a></p>
+</div></div></section><section data-id="a5c2dbe5295c1810d8dbb5d9a7ead34a"><div class="sl-block" data-block-type="text" style="width: 913px; left: 15px; top: 288px; height: auto;" data-block-id="a16af55675663dc56fb06cca5b726103"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Thank You Music City</h1>
+</div></div></section><section data-background-color="#ffffff" data-id="2963cba6d1fc4224ac43933dbccf1ad6"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 225px; height: auto;" data-block-id="023450483551fcdfeea2e53387c0ccd4"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
+<h1>Questions</h1>
+
+<h1>@<a href="https://twitter.com/adhithiravi" target="_blank">AdhithiRavi</a>
+</h1>
+</div></div></section></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1591498,"slug":"deck-2-3-3-11-16","title":"Music City Tech 2019 - Lessons from building react native apps","description":"10 Lessons from building react native apps. ByteConf React Native","width":960,"height":700,"visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/fce82231dd51bb2d7fc4e53d2052bfbf/thumb.jpg?1567634894","view_count":0,"user":{"id":887386,"username":"avindrafernando","name":"Avindra Fernando","description":null,"thumbnail_url":"https://lh6.googleusercontent.com/-M3NEgrSsLQE/AAAAAAAAAAI/AAAAAAAAAng/gI6HoGNo1s0/photo.jpg","paid":true,"pro":false,"lite":true,"team_id":null,"settings":{"id":1364586,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":null,"slide_number":null,"slide_count":56,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1567636055703,"font_typekit":null,"font_google":null,"time_limit":null,"upsizing_enabled":null,"notes":{"6f33c98666fb053af28e45092fb83361":"With React Native, styles have no effect on your app unless you specifically pass them to your components. There is no concept of a ‘selector’ because components and styles are tightly coupled. It means you can use the same name for styles across multiple stylesheets without causing side effects, so this is fine:","d40c445334ddb088ac56692dcfff49b1":"","81cc1f0405f890793529d48fe3aadea1":"","76df8c170975e4536dbbf479f27c4da4":"","bdd2385440559322fde8a0056dfdc4e5":"","d0701bc9e05a58aa1ea7e0c927406f62":"","3c5c5cf8977841fa3861d5508aabb523":"","914bc4cfb6b2e5a9971aed18e79d1cd5":"","e5dac3f755d6fcd4bb9305093f2d4653":"","c47952cc94c725d5ff8446c16947ff5a":"","42dbb3996b020f8666b26d38a1df0730":"","05e66f467b82b9fae5cb9268b40192b3":"","fb271cfb4d70669f5851c0f7b86dab9c":"","8bd013df63874a8cafe97fa0568f66a9":"","cc69921a017fdd969fcbdbd12f865c67":"Newer Android phones require more explicit permission requests, and once I tested on a physical device, I realized that my app’s photo gallery needed these permissions to load correctly.","ea7100fdc03a94cba28f6118e01f88fa":"","b7e2fa8fc4bb18c3d3e26ceafa687523":"","6aba143a7c8bd32aa85aa2a4f067d62b":"","4e0273a7da07ff173d708f0f1b234073":"includes a bunch of APIs regardless of whether or not you are using them -- this lets you push over the air updates to use new APIs, but comes at the cost of binary size.","9e59b7162cf32db4acbfef4a5b3d230d":"","402d8a00a657acd1e2091cbceb9b83c9":"","2995d1cf1d01ed1cad5274a9fe4028c4":"","9f6fbedc3588e3976f9e5f25ab2a7df5":"","21116acd90236ee9a90210f2a8250b09":"","47e0d8b2f0d8cfd8fb1404e0938e4354":"","82ee830b68b42f7b0f1dd7130cf85243":"","43d23a1ae3a566e7d7e1b9ed04510e2b":"","e9e4c537fe81c5b814f66d7feef3e991":"","a0404b57152be6a118530f578fd492b4":"","f2d994c44831e982590e2db3436e9c17":"","7bd0c1f1eff3e685acc2a0c44e9b982c":"","1a5aa9b60810a446fe27e46fc7f2be66":"","1693b3343125f7364115de79a83ab789":"Detox does Gray box, not Black box, to allows the test framework to monitor the app from the inside and actually synchronize with it.\n\n","c574d1605ba62b216e4b7decc6b93eaf":"","e8b4a2d24eeab6fac0c5d61f6f06c347":"","6d0cb8c9990d67b9e4fce47261ad1a9c":"","f191e5f7fae30bd80dcd0e214bf732f6":"","e52d73a8b0271b8563d3089b25710e1b":"flexbox and position properties won't. ","28be554b3bc221157e9c3be65b8bb8a6":"","fb50e2e6b7691ac727b357771777cc0b":"","b4cd8030ec273aa3310f75e2be1a9869":"","eb15a8ad3fa7d9cb2a2e6d07b2ff7054":"","2def0894621faf83d8573c76b30d0a61":"","2963cba6d1fc4224ac43933dbccf1ad6":"","b51f2ad306cb7b384d4ab1b46f4f9e04":"","f69b9302385afb6c13199c6ac6705865":"","f1cd3818796696a7116abc0c5d6490a5":"","163ce86296a461ed0caf3e9c6b9fb1cf":"","510f603c07c4350b2bf53d94901ecdfd":"","8ca941990fc3e3e4bab68c56d0d4340d":"","c73cbf1857a666f7db5ad6f6c6cb14f6":"","a667bd3e77b0d1c2b82f3932a8f9fe89":"Mobx . Lesser boilerplate code, compared to redux\nEasier learning curve\nMultiple stores "}}};
+
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+				maxScale: 1,
+
+				hash: true,
+				controls: true,
+				progress: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: false,
+
+				autoSlide: 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "slide",
+				backgroundTransition: "slide",
+
+				highlight: {
+					escapeHTML: false
+				},
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js' },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/reveal-plugins/zoom/zoom.js', async: true }
+				]
+			});
+		</script>
+
+		
+
+	</body>
+</html>
